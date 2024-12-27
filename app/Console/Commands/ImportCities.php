@@ -13,7 +13,7 @@ class ImportCities extends Command
      *
      * @var string
      */
-    protected $signature = 'app:import-cities';
+    protected $signature = 'data:import';
 
     /**
      * The console command description.
