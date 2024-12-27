@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('mayor_name');
             $table->text('city_hall_address');
             $table->string('phone');
-            $table->string('fax');
+            $table->string('fax')->nullable();
             $table->string('email')->nullable();
             $table->string('website')->nullable();
             $table->timestamps();
