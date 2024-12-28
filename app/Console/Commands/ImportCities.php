@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\City;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Storage;
 use Symfony\Component\DomCrawler\Crawler;
 
 class ImportCities extends Command
@@ -59,7 +60,6 @@ class ImportCities extends Command
 
             $okresCrawler->filter('table[cellpadding="3"] tr td a')->each(function (Crawler $node) use ($okresName) {
 
-                $this->info($node->attr('href'));
                 $cityUrl = $node->attr('href');
 
                 if (! str_starts_with($cityUrl, 'https://www.e-obce.sk/obec/')) {
@@ -89,8 +89,20 @@ class ImportCities extends Command
                 $email = $cityCrawler->filterXPath('//table[@cellspacing="3"]//tr[5]//td[3]')->text();
                 $website = $cityCrawler->filterXPath('//table[@cellspacing="3"]//tr[6]//td[3]')->text();
 
-                if (empty($mayorName)) {
-                    dd($cityCrawler->filterXPath('//table[@cellspacing="3"]//tr[8]//td[2]')->text());
+                $coatOfArmsUrl = $cityCrawler->filterXPath('//table[@cellspacing="3"]//tr[3]//td//img')->attr('src');
+
+                try {
+                    $imageContents = file_get_contents($coatOfArmsUrl);
+
+                    $imageName = str_replace([' ', '/'], '_', $cityName).'.png';
+                    $imagePath = "coat_of_arms_imgs/$imageName";
+
+                    Storage::disk('public')->put($imagePath, $imageContents);
+
+                    $localImagePath = Storage::url($imagePath);
+
+                } catch (\Exception $e) {
+                    $this->error('Failed to download or save coat of arms: '.$e->getMessage());
                 }
 
                 City::updateOrCreate(
@@ -102,6 +114,7 @@ class ImportCities extends Command
                         'fax' => $fax ?? null,
                         'email' => $email ?? null,
                         'website' => $website ?? null,
+                        'coat_of_arms_path' => $localImagePath ?? null,
                         'region' => $okresName ?? null,
                     ]
                 );

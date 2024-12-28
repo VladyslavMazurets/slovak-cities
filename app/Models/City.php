@@ -17,5 +17,6 @@ class City extends Model
         'fax',
         'email',
         'website',
+        'coat_of_arms_path',
     ];
 }
