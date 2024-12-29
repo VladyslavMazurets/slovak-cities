@@ -1,3 +1,33 @@
 .mx-13 {
     margin-inline: 140px;
 }
+
+.nav-item {
+    .nav-link {
+        margin-right: 24px;
+        padding-left: 12px !important;
+
+        font-size: 14px;
+        font-weight: 500;
+        color: #3b3b3b;
+    }
+}
+
+.contact {
+    color: #2189f2 !important;
+    text-decoration: none;
+}
+
+.btn-signin {
+    background-color: #07d3a9;
+    transition: background-color 0.2s linear;
+
+    &:hover {
+        background-color: #039f7d;
+    }
+}
+
+.dropdown-toggle {
+    color: #d4d3d3;
+    border-radius: none;
+}
