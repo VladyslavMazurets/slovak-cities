@@ -1,5 +1,8 @@
 import { createApp, h } from "vue";
 import { createInertiaApp } from "@inertiajs/vue3";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../scss/app.scss";
+import "bootstrap";
 
 createInertiaApp({
     resolve: async (name) => {
