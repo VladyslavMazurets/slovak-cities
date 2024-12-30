@@ -10,41 +10,40 @@
             <div
                 class="city-details d-flex flex-column justify-content-center gap-3"
             >
-                <div class="d-flex justify-content-between">
-                    <strong>Meno starostu:</strong>
-                    <span>{{ city.mayor_name }}</span>
-                </div>
-                <div class="d-flex justify-content-between">
-                    <strong>Adresa obecného úradu:</strong>
-                    <span>{{ city.city_hall_address }}</span>
-                </div>
-                <div class="d-flex justify-content-between">
-                    <strong>Telefón:</strong>
-                    <span>{{ city.phone }}</span>
-                </div>
-                <div class="d-flex justify-content-between">
-                    <strong>Email:</strong>
-                    <div class="d-flex flex-column">
-                        <span v-for="email in emails" :key="email">
-                            {{ email }}
-                        </span>
+                <div class="row align-items-start">
+                    <div class="col-6 d-flex flex-column gap-3">
+                        <strong>Meno starostu:</strong>
+                        <strong>Adresa obecného úradu:</strong>
+                        <strong>Telefón:</strong>
+                        <template v-for="(email, index) in emails">
+                            <strong v-if="index === 0">Email:</strong>
+                            <span v-else>&nbsp;</span>
+                        </template>
+                        <strong>Web:</strong>
+                    </div>
+
+                    <div class="col-6 d-flex flex-column gap-3">
+                        <span>{{ city.mayor_name }}</span>
+                        <span>{{ city.city_hall_address }}</span>
+                        <span>{{ city.phone }}</span>
+                        <template v-for="email in emails">
+                            <span>{{ email }}</span>
+                        </template>
+                        <span>{{ city.website }}</span>
                     </div>
                 </div>
-                <div class="d-flex justify-content-between">
-                    <strong>Web: </strong>
-                    <span>{{ city.website }}</span>
-                </div>
             </div>
+
             <div
                 class="city-cfa d-flex flex-column justify-content-center align-items-center gap-3"
             >
                 <img
                     :src="city.coat_of_arms_path"
                     alt="CFA logo"
-                    width="22%"
-                    height="22%"
+                    width="20%"
+                    height="30%"
                 />
-                <h1 class="text-primary">{{ city.name }}</h1>
+                <h1 class="city-name">{{ city.name }}</h1>
             </div>
         </div>
     </div>

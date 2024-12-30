@@ -1,6 +1,6 @@
 .city {
-    width: 77%;
-    height: 446px;
+    width: 80%;
+    height: 350px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
     .city-details {
@@ -9,6 +9,15 @@
 
         padding-inline: 86px;
         background-color: #f8f8f8;
+
+        strong {
+            font-size: 15px;
+        }
+
+        span {
+            color: #575757;
+            font-size: 15px;
+        }
     }
 
     .city-cfa {
@@ -16,5 +25,11 @@
         height: 100%;
 
         padding-inline: 86px;
+
+        .city-name {
+            color: #0c7ef1;
+
+            font-weight: 700;
+        }
     }
 }
