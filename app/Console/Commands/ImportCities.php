@@ -100,6 +100,7 @@ class ImportCities extends Command
                     Storage::disk('public')->put($imagePath, $imageContents);
 
                     $localImagePath = Storage::url($imagePath);
+                    $localImagePath = str_replace('/storage/', '/uploads/', $localImagePath);
 
                 } catch (\Exception $e) {
                     $this->error('Failed to download or save coat of arms: '.$e->getMessage());
