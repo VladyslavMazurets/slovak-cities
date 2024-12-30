@@ -1,8 +1,8 @@
 <template>
-    <div class="footer px-13 pt-5">
+    <div class="footer px-13 pt-5 pb-5">
         <div class="row">
             <div class="d-flex flex-column col-md-3 gap-4">
-                <div class="d-flex flex-column">
+                <div class="d-flex flex-column gap-1">
                     <strong>ADRESA A KONTAKT</strong>
                     <FooterNavItem :title="'ŠÚKL'" />
                     <FooterNavItem :title="'Kvetná 11'" />
@@ -11,7 +11,7 @@
                     <FooterNavItem :title="'+421-2-50701 111'" />
                 </div>
 
-                <div class="d-flex flex-column">
+                <div class="d-flex flex-column gap-1">
                     <strong>KONTAKTY</strong>
                     <FooterNavItem :title="'telefónne čísla '" />
                     <FooterNavItem :title="'adresa'" />
@@ -19,7 +19,7 @@
                     <FooterNavItem :title="'bankové spustenie'" />
                 </div>
 
-                <div class="d-flex flex-column">
+                <div class="d-flex flex-column gap-1">
                     <strong>INFORMÁCIE PRE VEREJNOSŤ</strong>
                     <FooterNavItem :title="'Zoznam vyvezených liekov'" />
                     <FooterNavItem :title="'MZ SR'" />
@@ -28,7 +28,7 @@
             </div>
 
             <div class="col-md-3">
-                <div class="d-flex flex-column">
+                <div class="d-flex flex-column gap-2">
                     <strong>O NÁS</strong>
                     <FooterNavItem :title="'Dotazníky'" />
                     <FooterNavItem :title="'Hlavní predstavitelia'" />
@@ -54,14 +54,14 @@
             </div>
 
             <div class="d-flex flex-column col-md-3 gap-4">
-                <div class="d-flex flex-column">
+                <div class="d-flex flex-column gap-1">
                     <strong>MÉDIÁ</strong>
                     <FooterNavItem :title="'Tlačové správy'" />
                     <FooterNavItem :title="'Lieky v médiách'" />
                     <FooterNavItem :title="'Kontakt pre médiá'" />
                 </div>
 
-                <div class="d-flex flex-column">
+                <div class="d-flex flex-column gap-1">
                     <strong>DATABÁZY A SERVIS</strong>
                     <FooterNavItem
                         :title="'Databáza liekov a zdravotníckych'"
@@ -81,7 +81,7 @@
             </div>
 
             <div class="d-flex flex-column col-md-3 gap-4">
-                <div class="d-flex flex-column">
+                <div class="d-flex flex-column gap-1">
                     <strong>DROGOVÉ PREKURZORY</strong>
                     <FooterNavItem :title="'Aktuality'" />
                     <FooterNavItem :title="'Legislatíva'" />
@@ -89,7 +89,7 @@
                     <FooterNavItem :title="'Kontakt'" />
                 </div>
 
-                <div class="d-flex flex-column">
+                <div class="d-flex flex-column gap-1">
                     <strong>INÉ</strong>
                     <FooterNavItem :title="'Linky'" />
                     <FooterNavItem :title="'Mapa stránoк'" />
