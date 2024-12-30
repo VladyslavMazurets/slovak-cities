@@ -1,7 +1,5 @@
 <template>
     <div>
-        <Navbar />
-
         <div
             class="search-container d-flex justify-content-center align-items-center"
         >
@@ -16,12 +14,7 @@
                 />
             </div>
         </div>
-
-        <Footer />
     </div>
 </template>
 
-<script setup lang="ts">
-import Footer from "../../Components/Footer.vue";
-import Navbar from "../../Components/Navbar.vue";
-</script>
+<script setup lang="ts"></script>
