@@ -1,0 +1,21 @@
+.footer {
+    background-color: #dfdfdf;
+
+    strong {
+        margin-bottom: 4px;
+
+        font-size: 16px;
+        color: #545454;
+    }
+
+    .footer-nav-item {
+        font-size: 14px;
+        color: #6c6c6c;
+        text-decoration: none;
+        transition: linear 0.2s;
+
+        &:hover {
+            color: #0d6efd;
+        }
+    }
+}
