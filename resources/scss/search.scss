@@ -1,20 +1,14 @@
-@import "bootstrap/scss/bootstrap";
-@import "navbar";
-@import "footer";
-@import "city";
-@import "search";
-
-.search-container {
-    height: 450px;
+.search-result-container {
+    height: max-content;
 
     .search-gradient {
         background: linear-gradient(to bottom right, #0978f1, #13aef7);
 
-        .search-title {
+        .search-result-title {
             margin-bottom: 32px;
 
             font-size: 68px;
-            font-weight: 100;
+            font-weight: 300;
         }
 
         .search-input {
@@ -25,12 +19,4 @@
                 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
     }
-}
-
-.mx-13 {
-    margin-inline: 140px;
-}
-
-.px-13 {
-    padding-inline: 140px;
 }

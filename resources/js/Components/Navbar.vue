@@ -2,7 +2,7 @@
     <div class="border-bottom">
         <nav class="navbar d-flex flex-column navbar-expand-lg bg-white mx-13">
             <div class="container-fluid mb-3">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="/">
                     <img
                         src="/images/garden-logo.png"
                         alt="Logo"
