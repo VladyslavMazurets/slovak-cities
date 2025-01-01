@@ -20,6 +20,7 @@
                             <span v-else>&nbsp;</span>
                         </template>
                         <strong>Web:</strong>
+                        <strong>Zemepisné súradnice:</strong>
                     </div>
 
                     <div class="col-6 d-flex flex-column gap-3">
@@ -30,6 +31,7 @@
                             <span>{{ email }}</span>
                         </template>
                         <span>{{ city.website }}</span>
+                        <span>{{ city.latitude }} {{ city.longitude }}</span>
                     </div>
                 </div>
             </div>

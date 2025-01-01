@@ -7,6 +7,8 @@ export interface City {
     fax: string;
     email: string;
     website: string;
+    latitude: number;
+    longitude: number;
     created_at: string;
     updated_at: string;
     coat_of_arms_path: string;

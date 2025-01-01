@@ -10,7 +10,9 @@
                     Hľadaný obec: {{ searchQuery }}
                 </h1>
 
-                <div class="d-flex flex-column align-items-center w-100">
+                <div
+                    class="autocomplete-container d-flex flex-column align-items-center w-100"
+                >
                     <input
                         type="text"
                         placeholder="Zadajte názov"
@@ -21,6 +23,7 @@
                     />
 
                     <div
+                        v-if="newSearchQuery.length > 0"
                         class="search-autocomplete d-flex flex-column text-start bg-white"
                     >
                         <Link
@@ -99,15 +102,17 @@ const autoComplete = () => {
     clearTimeout(timer);
 
     timer = setTimeout(() => {
-        axios
-            .get(
-                route("cities.autocomplete", {
-                    searchCity: newSearchQuery.value,
-                })
-            )
-            .then((response) => {
-                autoCompleteItems.value = response.data;
-            });
+        if (newSearchQuery.value.length > 0) {
+            axios
+                .get(
+                    route("cities.autocomplete", {
+                        searchCity: newSearchQuery.value,
+                    })
+                )
+                .then((response) => {
+                    autoCompleteItems.value = response.data;
+                });
+        }
     }, 500);
 };
 

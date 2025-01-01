@@ -24,23 +24,31 @@
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
                 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
+    }
+}
 
-        .search-autocomplete {
-            width: 40%;
+.autocomplete-container {
+    position: relative;
 
-            border-bottom-left-radius: 6px;
-            border-bottom-right-radius: 6px;
+    .search-autocomplete {
+        position: absolute;
+        top: 100%;
+        width: 40%;
 
-            .autocomplete-link {
-                font-size: 14px;
-                color: black;
-                text-decoration: none;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
 
-                padding: 8px 12px;
+        .autocomplete-link {
+            font-size: 14px;
+            color: black;
+            text-decoration: none;
 
-                &:hover {
-                    background-color: #f1f1f1;
-                }
+            padding: 8px 12px;
+
+            &:hover {
+                background-color: #f1f1f1;
             }
         }
     }

@@ -7,7 +7,9 @@
         >
             <h1 class="search-title">Vyhľadať v databáze obcí</h1>
 
-            <div class="d-flex flex-column align-items-center w-100">
+            <div
+                class="autocomplete-container d-flex flex-column align-items-center w-100"
+            >
                 <input
                     type="text"
                     placeholder="Zadajte názov"
@@ -18,6 +20,7 @@
                 />
 
                 <div
+                    v-if="searchQuery.length > 0"
                     class="search-autocomplete d-flex flex-column text-start bg-white"
                 >
                     <Link
@@ -53,15 +56,17 @@ const autoComplete = () => {
     clearTimeout(timer);
 
     timer = setTimeout(() => {
-        axios
-            .get(
-                route("cities.autocomplete", {
-                    searchCity: searchQuery.value,
-                })
-            )
-            .then((response) => {
-                autoCompleteItems.value = response.data;
-            });
+        if (searchQuery.value.length > 0) {
+            axios
+                .get(
+                    route("cities.autocomplete", {
+                        searchCity: searchQuery.value,
+                    })
+                )
+                .then((response) => {
+                    autoCompleteItems.value = response.data;
+                });
+        }
     }, 500);
 };
 
