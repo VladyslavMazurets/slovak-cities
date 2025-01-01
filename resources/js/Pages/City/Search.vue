@@ -31,9 +31,23 @@
                             <h5 class="text-black">{{ city.name }}</h5>
                         </div>
                         <div>
-                            <button class="btn btn-primary">Detail</button>
+                            <Link
+                                :href="route('city.index', { city: city.id })"
+                                as="link"
+                                class="btn btn-primary"
+                            >
+                                Detail
+                            </Link>
                         </div>
                     </div>
+
+                    <button
+                        v-if="isMore"
+                        @click="loadMore"
+                        class="btn btn-success mt-4"
+                    >
+                        Show more
+                    </button>
                 </div>
             </div>
         </div>
@@ -43,21 +57,35 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { City } from "../../types";
-import { router } from "@inertiajs/vue3";
+import { router, Link } from "@inertiajs/vue3";
 import { route } from "ziggy-js";
 
 interface Props {
     cities: City[];
     searchQuery: string;
+    isMore: boolean;
 }
 
 const props = defineProps<Props>();
-console.log("🚀 ~ props:", props.searchQuery);
-console.log("🚀 ~ props:", props.cities);
+const page = ref(2);
 
 const newSearchQuery = ref("");
 
 const handleSearch = () => {
     router.visit(route("cities.search", { searchCity: newSearchQuery.value }));
+};
+
+const loadMore = () => {
+    router.reload({
+        only: ["cities", "isMore"],
+        data: {
+            searchCity: props.searchQuery,
+            page: page.value,
+        },
+
+        onSuccess: () => {
+            page.value++;
+        },
+    });
 };
 </script>

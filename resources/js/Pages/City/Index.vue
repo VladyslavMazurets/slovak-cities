@@ -58,7 +58,6 @@ interface Props {
 }
 
 const props = defineProps<Props>();
-console.log("🚀 ~ props:", props.city);
 
 const emails = computed(() => {
     return props.city.email.split(" ");
