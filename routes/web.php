@@ -10,3 +10,4 @@ Route::get('/', function () {
 
 Route::get('city/{city}', [CityController::class, 'index'])->name('city.index');
 Route::get('cities/search/{searchCity}', [CityController::class, 'search'])->name('cities.search');
+Route::get('cities/autocomplete/{searchCity}', [CityController::class, 'autocomplete'])->name('cities.autocomplete');

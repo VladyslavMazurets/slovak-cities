@@ -12,10 +12,17 @@ class CityController extends Controller
 
     public function index(City $city)
     {
-
         return Inertia::render('City/Index')->with([
             'city' => $city,
         ]);
+    }
+
+    public function autocomplete(Request $request)
+    {
+        $searchQuery = $request->searchCity;
+        $cities = City::where('name', 'like', '%'.$searchQuery.'%')->limit(5)->get();
+
+        return response()->json($cities);
     }
 
     public function search(Request $request)
