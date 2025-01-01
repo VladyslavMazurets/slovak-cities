@@ -53,6 +53,8 @@ $ sail npm run dev
 ```
 
 ### 7. Import Slovak cities located in Nitra
+
+For this step, I used the [DomCrawler](https://symfony.com/doc/current/components/dom_crawler.html#node-filtering) for data parsing.
 To import Slovak cities located in Nitra, run the following command:
 
 ```sh
